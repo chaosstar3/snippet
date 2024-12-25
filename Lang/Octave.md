@@ -1,0 +1,50 @@
+-   op
+    -   +-*/ ^
+    -   == ~=
+    -   && || xor()
+    -   .{^*}: element-wise op
+-   matrix
+    -   [1 2; 3 4]
+    -   range: [from]:[step=1]:[to]
+    -   func
+        -   ones, zeroes, eye(id mat) (row, col=row)
+        -   rand, randn(dist)
+        -   magic
+        -   ': transpose
+    -   a = [a, [v]] % append col vec
+    -   a = [a; b] % append row
+    -   operation element-wise
+-   command
+    -   disp, sprintf, format {short, long}
+    -   hist
+    -   sys
+        -   pwd, ls, cd
+        -   load, save [file] [var] [-ascii]
+        -   addpath
+    -   who: all variables, whos, clear
+    -   function call search file
+-   func
+    -   size(matrix, 1or2) -> 1x2 matrix, length
+    -   log exp max(a, ?, per_?) min sum prod floor ceil
+    -   find->[row,col]
+    -   function last arg: per row(1) per col(2)
+    -   pinv, inv
+    -   flipud:flip up down
+-   control flow
+    -   {if for while} {cond},{body}\nend;
+    -   if elseif else
+    -   break continue
+-   function
+    -   function [{returns,}] = {name}(arg)
+    -   {body}
+-   CONST: pi
+-   % COMMENT
+-   plot
+    -   plot(x, func, color)
+    -   hold on
+    -   xlabel, ylabel, legend, title
+    -   print -dpng [file]
+    -   subplot
+    -   axis
+    -   imagesc([mat], colorbar, colormap gray)
+-   @function: function pointer
