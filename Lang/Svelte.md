@@ -1,17 +1,17 @@
 ## init
 - init svelte
 > npx sv create
-
 - tailwindcss (https://tailwindcss.com/docs/guides/sveltekit)
 > npm i -D tailwindcss postcss autoprefixer
 > npx tailwindcss init -p
-
 - shadcn (https://www.shadcn-svelte.com/docs/installation/sveltekit)
 > npx shadcn-svelte@latest init
 > npx shadcn-svelte@latest add button
-
 - sass
 > npm i -D sass 
+- lucide
+> npm add lucide-svelte
+
 ## Develop
 > npm run dev
 ## Build

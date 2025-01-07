@@ -1,13 +1,6 @@
+## init
 1. Spring Initializer
 https://start.spring.io/
-
-Gradle Kotlin 2.4.2 Jar 11
-- Spring Web
-- Spring Boot DevTools
-
-- Mustache
-- Spring Data JPA
-- H2 Database
 
 2. build env
 vscode Spring Boot Extension Pack
@@ -15,12 +8,13 @@ vscode Spring Boot Extension Pack
 devtools auto restart command line
 > gradle build --continuous
 > gradle bootrun
+## convention
+### 디렉토리 구조
+- 도메인형
+- 계층형
+# configs 
 
-livereload
-
-## configs 
-
-lombok
+### lombok
 ```groovy
 // #!build.gradle
 compileOnly 'org.projectlombok:lombok'
@@ -29,14 +23,27 @@ annotationProcessor 'org.projectlombok:lombok'
 testCompileOnly 'org.projectlombok:lombok'
 testAnnotationProcessor 'org.projectlombok:lombok'
 ```
-
-batch
+## batch
 ```groovy
 // #!build.gradle
 runtimeOnly 'com.h2database:h2'
 ```
+## DB
+### mysql
+```groovy
 
-test
+implementation 'org.springframework.boot:spring-bost-starter-jdbc'
+implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:$version'
+
+runtimeOnly 'com.mysql:mysql-connector-j'
+```
+
+```properties
+spring.datasource.url=jdbc:mysql://
+spring.datasource.username=
+spring.datasource.password=
+```
+## test
 ```groovy
 testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 testImplementation 'org.assertj:assertj-core'
@@ -55,8 +62,7 @@ test {
 	}
 }
 ```
-
-#checkstyle
+### #checkstyle
 ```groovy
 id 'checkstyle'
 
@@ -67,8 +73,8 @@ checkstyle {
 	toolVersion = "10.17.0"
 }
 ```
-
-#freemarker
+## lib
+### #freemarker
 ```groovy
 // #!build.gradle
 implementation 'org.springframework.boot:spring-boot-starter-freemarker'
@@ -95,7 +101,6 @@ public class FreemarkerConfiguration {
     }
 }
 ```
-
 # Doc
 
 특징
@@ -113,3 +118,4 @@ AOP | ------------- | MVC
 --------------------------
          core
 ```
+

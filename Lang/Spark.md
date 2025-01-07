@@ -1,4 +1,69 @@
-## background
+## Usage
+
+### install
+```sh
+# https://spark.apache.org/downloads.html
+wget https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3-scala2.13.tgz
+
+# conf/spark-env.sh
+export SPRAK_HOME=
+export SPARK_DIST_CLASSPATH=<hadoop_path>
+# https://spark.apache.org/docs/latest/configuration.html
+```
+### scala
+> sbt new
+
+`build.sbt`
+```groovy build.sbt
+val sparkVersion = "3.5.1"
+
+lazy val root = (project in file("."))
+	.settings(
+		name := "App",
+		libraryDependencies ++= Seq(
+			"org.apache.spark" %% "spark-core" % sparkVersion,
+			"org.apache.spark" %% "spark-sql" % sparkVersion,
+			"org.scalameta" %% "munit" % "0.7.29" % Test,	
+		),
+
+		assembly / mainClass := Some("example.SparkApp"),
+		assembly / assemblyJarName := s"${name.value}-${version.value}.jar"
+		assembly / test := {},
+	
+		assembly assemblyMergeStrategy := {
+			case "META-INF/MANIFEST.MF" => MergeStrategy.discard
+			case _ => MergeStrategy.first
+		},
+	)
+```
+`plugin.sbt`
+```groovy plugin.sbt
+addSbtPlugin("com.eed3si9n" % sbt-assembly % "2.2.0")
+```
+
+```scala
+package example
+import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.SparkSession
+
+object SparkApp {
+	def main(args: Array[String]): Unit = {
+		val spark = SparkSession.builder().appName("MyApp").master("local[*]").getOrCreate()
+		import spark.implicits._
+		val df = List("Hello", "Spark").toDF()
+		df.show(2, false)
+	}
+}
+```
+### run
+> $SPARK_HOME/bin/spark-submit 
+> 	--class com.example
+> 	--name name 
+> 	--master local[*]
+> 	--deploy-mode client 
+> 	test.jar
+## overview
+### background
 
 - hadoop: 파일분할:HDFS + 분산처리:MapReduce + ClusterManger:yarn
 - spark: process | RDD(Resilient Distributed Dataset): abstract
@@ -8,7 +73,6 @@ map/transform: input -> output
 reduce: (map output 여러개, shuffle) -> result
 
 mapreduce vs spark: 중간 단계를 파일로 저장 / 메모리
-## overview
 
 구조: https://spark.apache.org/docs/latest/cluster-overview.html
 - Driver - SparkContext
@@ -38,28 +102,6 @@ rdd3 = rdd2.reduceByKey
 
 ### ETC
 spark UI
-
-## usage
-### install
-
-```sh
-# https://spark.apache.org/downloads.html
-wget https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3-scala2.13.tgz
-
-# conf/spark-env.sh
-export SPRAK_HOME=
-export SPARK_DIST_CLASSPATH=<hadoop_path>
-# https://spark.apache.org/docs/latest/configuration.html
-```
-
-### run
-
-> spark-submit 
-> 	--class com.example
-> 	--name name 
-> 	--master local 
-> 	--deploy-mode client test.jar
-
 ### example
 ```scala
 // RDD
@@ -102,8 +144,7 @@ processing
 dataset은 encoder 필요: import map(scala.implicits.\_, v)
 dataframe은 row이므로 불필요
 
-
-## Content
+## Doc
 ### DataFrame
 
 > import spark.implicits._
@@ -170,19 +211,14 @@ val query = df.writeStream
 query.awaitTremination()
 ```
 
-
 ### tip
-
 new CountDownLatch(1).await()
 spark-shell --packages {dependency} --conf {conf}
-
 ## 3rd party
 ### zeppelin
 
 코드로 html form 생성 가능
 
-
-
-## more 
+## Appendix 
 ### study
 catalyst optimizer & project tungsten

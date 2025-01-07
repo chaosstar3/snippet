@@ -21,3 +21,9 @@
 # manager
 ## sdkman
 > curl -s "https://get.sdkman.io" | bash
+
+## asdf
+https://asdf-vm.com/guide/getting-started.html
+> git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.15.0
+zshrc
+> . "$HOME/.asdf/asdf.sh"
