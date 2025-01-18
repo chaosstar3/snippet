@@ -1,3 +1,6 @@
+## design
+- class variable은 non_reactive -> type으로 정의 or toObject()
+
 ## init
 - init svelte
 > npx sv create
