@@ -1,0 +1,20 @@
+-   semaphore
+    -   Pros: pass control to other thread
+    -   Cons: sleep required
+-   spinlock
+    -   Pros: small lock overhead
+    -   Cons: spin overhead
+-   rwlock
+    -   multiple read lock allowed
+    -   Cons: write starvation
+-   seqlock
+    -   read seq, read data, check seq, if updated retry
+    -   write seq and update
+    -   Pros: prevent write starvation
+    -   Cons: read could be slow, infinite
+-   RCU (Read-Copy-Update)
+    -   pointer referenced data structure
+    -   Read: just read
+    -   Write: copy to new mem, change pointer(atomic)
+    -   Pros: lock-free
+    -   Cons: can't free before reader reads

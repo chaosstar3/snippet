@@ -44,10 +44,17 @@ java -jar spring-cli-0.10.0-SNAPSHOT.jar boot start \
 	- Test Runner for Java
 	- Debugger for Java
 	- (Project Manager for Java)
-- devtools auto restart command line
-> 	gradle build --continuous
-> 	gradle bootrun
+- devtools auto build & restart
+```
+// build.gradle
+developmentOnly 'org.springframework.boot:spring-boot-devtools'
+// application.properties
+spring.devtools.restart.enabled=true
 
+// CLI
+gradle build --continuous
+gradle bootrun
+```
 ## configs 
 #### lombok
 ```groovy

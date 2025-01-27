@@ -1,4 +1,4 @@
-## design
+### design
 - class variable은 non_reactive -> type으로 정의 or toObject()
 
 ## init
@@ -14,18 +14,16 @@
 > npm i -D sass 
 - lucide
 > npm add lucide-svelte
-
-## Develop
+### Develop
 > npm run dev
-## Build
+### Build
 > npm run build
 > npm run preview
-
-# add
-## proxy
+## add
+### proxy
 `vite.config.ts`
 ```ts
-defindConfig{
+define Config{
 	//...
 	server: {
 		proxy: {
@@ -34,7 +32,7 @@ defindConfig{
 	}
 }
 ```
-## static build
+### static build
 https://svelte.dev/docs/kit/adapter-static
 > npm i -D @sveltejs/adapter-static
 
@@ -60,6 +58,41 @@ export default {
 ```ts
 export const prerender = true
 ```
+
+### DB
+#### better-sqlite3
+```sh
+npm i better-sqlite3 @types/better-sqlite3
+```
+```ts
+// lib/db.ts
+import Database from 'better-sqlite3'
+import { DB_PATH } from '$env/static/private' // .env
+
+const db = new Database(DB_PATH, { verbose: console.log });
+export default db;
+```
+```ts
+//+page.server.ts
+import type { PageServerLoad } from './$types';
+import db from "$lib/db"
+
+export const load = (async ({ params }) => {
+	const stmt = db.prepare("SELECT 1");
+	const rows = stmt.all();
+
+	return {
+		rows: rows
+	}
+}) satisfies PageServerLoad;
+```
+```ts
+//+page.svelte
+export let data: PageData;
+console.log(data.rows);
+```
+
+
 
 # Doc
 script module -> run once
