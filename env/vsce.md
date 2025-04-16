@@ -11,3 +11,28 @@ builder
 
 build
 > vsce package
+
+## test
+#test #typescript
+### mocha
+```ts
+import * as assert from 'assert';
+
+describe('Tests', () => {
+	it('test', () => {
+		assert.equal(1, 1);
+	})
+})
+```
+
+```js
+//.mocharc.js
+"use strict"
+
+module.exports = {
+	require: ["ts-node/register'],
+	extensiohns: ['ts'],
+	spec: '/src/test/**/*.test.ts',
+	timeout: 3000,
+}
+```
