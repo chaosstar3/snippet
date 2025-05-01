@@ -24,29 +24,42 @@ windows port fowarding
 > netsh interface portproxy add v4tov6 listenport=21001 listenaddress=127.0.0.1 connectport=21001 connectaddress=::1
 > netsh interface portproxy delete v4tov4 listenport=21002 listenaddress=0.0.0.0
 
-# apple silicon
+# container runtime
 
-## docker
-> brew install docker
-
-## docker container runtime
-### lima
+## lima
 install
-> brew install lima
-
+```sh
+brew install lima
+``` 
+### docker
+```
+brew install docker
+```
 vm create&start
-> limactl start --vm-type=vz --rosetta --name docker template://docker
-> limactl start --vm-type=qemu --arch=x86_64 --name docker_x64 template://docker
+```sh
+limactl start --vm-type=vz --rosetta --name docker template://docker
+# qemu
+# limactl start --vm-type=qemu --arch=x86_64 --name docker_x64 template://docker
+```
 
 docker context (vm 시작시 나옴)
-> docker context create lima-docker --docker "host=unix:///.lima/docker/sock/docker.sock"
-> docker context use lima-docker
+```sh
+docker context create lima-docker --docker "host=unix:///.lima/docker/sock/docker.sock"
+docker context use lima-docker
+``` 
+### c3s
+```
+limactl start --vm-type=vz --rosetta --name docker template://c3s
+```
 
-### colima
-
+## colima
 install
-> brew install colima
-
+```sh
+brew install colima
+```
 vm create&start
-> colima start --vm-type=vz --vz-rosetta colima-docker
-> colima start --vm-type=qemu --arch=x86_64 colima-docker
+```sh
+colima start --vm-type=vz --vz-rosetta colima-docker
+# qemu
+# colima start --vm-type=qemu --arch=x86_64 colima-docker
+```
