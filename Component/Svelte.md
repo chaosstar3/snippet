@@ -111,6 +111,22 @@ import type { PageLoad } from './$types';
 
 export const load: PageLoad = ({ params }) => { return {} }
 ```
++server.ts
+```ts
+import { json, fail, error } from "@sveltejs/kit";
+import type { RequestHandler } from "./$types";
+
+export const POST: RequestHandler = async ({ request }) => {
+	const data = await request.json();
+	//const data = await request.formData();
+	if (data.ok) {
+		return json({ success: true }, { status: 201 });
+	} else {
+		return fail(400, ""/*or {error: ""}*/);
+		//return error(500, "");
+	}
+};
+```
 +error.svelte
 +layout.svelte
 ```html

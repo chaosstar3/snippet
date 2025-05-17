@@ -9,7 +9,7 @@ let newChild = target.lastElementChild;
 ```
 ### fetch
 ```ts
-const response = await fetch(url);
+const response = await fetch(url/*, { method: "POST" }*/);
 if (!response.ok) {
 	throw new Error(`${response.status}`);
 }
