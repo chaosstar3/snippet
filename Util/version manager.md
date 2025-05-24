@@ -38,6 +38,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 curl -s "https://get.sdkman.io" | bash
 ```
+
 ## asdf
 https://asdf-vm.com/guide/getting-started.html
 ```sh

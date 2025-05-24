@@ -19,6 +19,18 @@
 ### Build
 > npm run build
 > npm run preview
+
+## ref
+### env 
+https://svelte.dev/docs/kit/$env-static-private
+```ts
+import { MY_ENV_VAR } from '$env/static/private' // .env
+```
+
+```env
+MY_ENV_VAR=VAR
+```
+
 ## add
 ### proxy
 `vite.config.ts`
