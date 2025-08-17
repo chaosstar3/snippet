@@ -1,26 +1,49 @@
-### design
-- class variable은 non_reactive -> type으로 정의 or toObject()
-
 ## init
 - init svelte
-> npx sv create
-- tailwindcss (https://tailwindcss.com/docs/guides/sveltekit)
-> npm i -D tailwindcss postcss autoprefixer
-> npx tailwindcss init -p
-- shadcn (https://www.shadcn-svelte.com/docs/installation/sveltekit)
-> npx shadcn-svelte@latest init
-> npx shadcn-svelte@latest add button
-- sass
-> npm i -D sass 
-- lucide
-> npm add lucide-svelte
-### Develop
-> npm run dev
-### Build
-> npm run build
-> npm run preview
+```sh
+# init svelte
+npx sv create
 
-## ref
+# add-on
+npx sv add tailwindcss prettier eslint vitest
+```
+### add-on
+- [tailwindcss](https://tailwindcss.com/docs/guides/sveltekit)
+- prettier: formatter
+- eslint: lint
+- vitest: unit test
+- playwright: browser testing
+- tailwindcss
+- sveltekit-adapter: deployment
+- drizzle: db orm
+- lucia: auth guide
+- mdsvex: +markdown
+- paraglide: i18n
+- storybook: fe workshop
+### component
+- [shadcn](https://www.shadcn-svelte.com/docs/installation/sveltekit)
+- [lucide](https://lucide.dev/icons/)
+- sass
+```sh
+npx shadcn-svelte@latest init
+#npx shadcn-svelte@latest add button
+
+npm add lucide-svelte
+
+npm i -D sass 
+```
+## Develop
+```sh
+# dev
+npm run dev
+
+# build
+npm run build
+npm run preview
+```
+### Design
+- class variable은 non_reactive -> type으로 정의 or toObject(
+## Ref
 ### env 
 https://svelte.dev/docs/kit/$env-static-private
 ```ts
@@ -30,8 +53,6 @@ import { MY_ENV_VAR } from '$env/static/private' // .env
 ```env
 MY_ENV_VAR=VAR
 ```
-
-## add
 ### proxy
 `vite.config.ts`
 ```ts
@@ -103,8 +124,6 @@ export const load = (async ({ params }) => {
 export let data: PageData;
 console.log(data.rows);
 ```
-
-
 
 # Doc
 script module -> run once

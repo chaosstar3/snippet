@@ -16,6 +16,11 @@ import sys
 #sys.argv[1]
 
 ```
+
+## libs
+pycryptodome
+
+
 ## jupyter
 #cheatsheet
 ```python
