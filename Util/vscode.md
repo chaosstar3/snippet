@@ -1,3 +1,4 @@
+> java -cp "test-dependencies" org.junit.platform.launcher.cmd.Launcher --scan-classpath --include-classname=TestClass --include-methodname=TestMethod
 # extensions
 - tab-indent space-align
 # vsce
@@ -42,4 +43,12 @@ module.exports = {
 	spec: '/src/test/**/*.test.ts',
 	timeout: 3000,
 }
+```
+
+## shortcut
+when clause
+https://dev.to/whitphx/find-vscodes-undocumented-when-clause-contexts-1p2g
+```sh
+grep -rni -E "RawContextKey(<.*>)?\('.*\)" src/* | sed -E "s/^.*RawContextKey(<.*>)?\(([^)]*)\).*/\2/" | sed -E "s/^.*RawContextKey(<.*>)?\(([^)]*)\).*/\2/" | sed -E "s/'([^']*)'.*/\1/" | uniq | sort
+grep -rni -E "RawContextKey(<.*>)?\([^'].*\)" src/*
 ```

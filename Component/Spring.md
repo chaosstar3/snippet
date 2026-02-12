@@ -56,6 +56,13 @@ gradle build --continuous
 gradle bootrun
 ```
 ## configs 
+#### dotenv
+```groovy
+bootRun {
+	systemProperty 'spring.config.import', 'optional:file:.env[.properties]'
+}
+```
+
 #### lombok
 ```groovy
 // #!build.gradle
@@ -205,6 +212,7 @@ class InitApplicationTests {
 ```
 
 ### DB
+JDBC(Low) - MyBatis - JPA(High)
 #### mysql
 ```groovy
 

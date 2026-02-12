@@ -53,18 +53,7 @@ import { MY_ENV_VAR } from '$env/static/private' // .env
 ```env
 MY_ENV_VAR=VAR
 ```
-### proxy
-`vite.config.ts`
-```ts
-define Config{
-	//...
-	server: {
-		proxy: {
-			'/api': 'http://localhost:8080'
-		}
-	}
-}
-```
+### [[Vite#proxy]]
 ### static build
 https://svelte.dev/docs/kit/adapter-static
 > npm i -D @sveltejs/adapter-static
