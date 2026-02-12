@@ -21,7 +21,18 @@ npx sv add tailwindcss prettier eslint vitest
 - paraglide: i18n
 - storybook: fe workshop
 ### component
-- [shadcn](https://www.shadcn-svelte.com/docs/installation/sveltekit)
+- UI
+	- [shadcn](https://www.shadcn-svelte.com/docs/installation/sveltekit)
+	- melt ui
+	- flowbite
+	- carbon
+	- smelte
+	- sveltestrap
+	- svelte-mui
+	- tw-elements
+	- framework7
+	- daisy ui
+	- skeleton
 - [lucide](https://lucide.dev/icons/)
 - sass
 ```sh
