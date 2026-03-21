@@ -38,6 +38,14 @@ if __name__ == "__main__":
 ## libs
 pycryptodome
 
+
+
+### mysql
+pymysql: python native. 빠름
+mysql-connector-python: oracle 공식, 느림
+mysqliclient: 가장 빠름. c 구현체 설치
+
+
 ## jupyter
 #cheatsheet
 ```python

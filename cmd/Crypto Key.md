@@ -32,13 +32,14 @@
 
 # JKS
 #java #jks #keytool #openssl
-### example
+
+example
 ```sh
 openssl s_client -showcerts -connect $HOST:443 </dev/null 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cert.pem
 keytool -import -keystore $JAVA_HOME/jre/lib/security/cacerts -alias $ALIAS -file cert.pem -storepass changeit
 keytool -delete -keystore $JAVA_HOME/jre/lib/security/cacerts -alias $ALIAS -storepass changeit
 ```
-
+## CLI
 - defaultopt: -keystore {storefile} -storepass {changeit}
 - opt: -trustcacerts
 - commands

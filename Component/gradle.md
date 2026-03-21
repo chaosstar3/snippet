@@ -83,9 +83,14 @@ annotationProcessor 'org.projectlombok:lombok'
 testCompileOnly 'org.projectlombok:lombok'
 testAnnotationProcessor 'org.projectlombok:lombok'
 ```
-
-
+#### dotenv  
+```groovy  
+bootRun {  
+    systemProperty 'spring.config.import', 'optional:file:.env[.properties]'  
+}  
+```
 ### DB
+JDBC(Low) - MyBatis - JPA(High)
 #### mysql
 ```groovy
 
@@ -118,7 +123,7 @@ test {
 	}
 }
 ```
-### #checkstyle
+#### checkstyle
 ```groovy
 id 'checkstyle'
 
@@ -130,7 +135,7 @@ checkstyle {
 }
 ```
 ### lib
-#### #freemarker
+#### freemarker
 ```groovy
 // #!build.gradle
 implementation 'org.springframework.boot:spring-boot-starter-freemarker'
@@ -157,6 +162,7 @@ public class FreemarkerConfiguration {
 }
 ```
 
+# spring
 ## convention
 ### 디렉토리 구조
 - 도메인형: 도메인 기준 디렉토리

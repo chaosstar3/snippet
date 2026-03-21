@@ -40,3 +40,5 @@ variable
 
 - (plain), #local, loop var, #global 
 
+Parenthesis trick
+
