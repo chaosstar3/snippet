@@ -1,25 +1,42 @@
 [[version manager#python]]
 
-#optparse
+## CLI
+### argparse
 ```python
-# https://docs.python.org/ko/3.13/library/optparse.html
-from optparse import OptionParser
+import argparse
 
-if __name__ == '__main__':
-    parser = OptionParser()
-    parser.add_option('-o', '--output')
-    parser.add_option('-v', dest='verbose', action='store_true')
-    opts, args = parser.parse_args()
-    process(args, output=opts.output, verbose=opts.verbose)
+if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-e", "--env", help=".env") # dest: env
+	parser.add_argument("-v", action="store_true", help="verbose")
+	parser.add_argument("cmd", choices=['a', 'b'], help="command")
+	# parser.add_argument("args", nargs=argparse.REMAINDER)
+	# args = parser.parse_args()
+	args, r = parser.parse_known_args()
 
-import sys
-#sys.argv[1]
+	if args.cmd == 'a':
+		parser = argparse.ArgumentParser()
+		args, r = parser.parse_known_args(r)
 
 ```
 
+> [!optparse (deprecated)]- 
+> ```python
+> # https://docs.python.org/ko/3.13/library/optparse.html
+> from optparse import OptionParser
+>
+> if __name__ == '__main__':
+>	parser = OptionParser()
+>	parser.add_option('-o', '--output')
+>	parser.add_option('-v', dest='verbose', action='store_true')
+>	opts, args = parser.parse_args()
+>	process(args, output=opts.output, verbose=opts.verbose)
+>
+> import sys
+> #sys.argv[1]
+
 ## libs
 pycryptodome
-
 
 ## jupyter
 #cheatsheet
