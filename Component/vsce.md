@@ -1,6 +1,3 @@
-# extensions
-- tab-indent space-align
-# vsce
 https://code.visualstudio.com/api/get-started/your-first-extension
 
 ```sh
