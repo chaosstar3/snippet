@@ -86,7 +86,7 @@ public class SslUtil {
 
                 for(int i = 0; i < MAX_CERT_CHAIN; i++) {
                     try {
-                        defaultTrustManager.checkClientTrusted(certChain.toArray(new X509Certificate[0]), authType);
+                        defaultTrustManager.checkServerTrusted(certChain.toArray(new X509Certificate[0]), authType);
                         // trusted
                         return;
                     } catch (CertificateException untrusted) {
