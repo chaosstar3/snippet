@@ -86,6 +86,11 @@ testAnnotationProcessor 'org.projectlombok:lombok'
 #### dotenv  
 ```groovy  
 bootRun {  
+	doFirst {
+		if (!file('.env').exists()) {
+			throw new GradleException("need .env")
+		}
+	}
     systemProperty 'spring.config.import', 'optional:file:.env[.properties]'  
 }  
 ```

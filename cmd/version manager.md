@@ -24,7 +24,7 @@ pyenv install [python_version]
 ```
 ### use version
 ```sh
-python local [python_version]
+pyenv local [python_version]
 ```
 
 # node
