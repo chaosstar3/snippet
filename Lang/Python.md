@@ -35,11 +35,26 @@ if __name__ == "__main__":
 > import sys
 > #sys.argv[1]
 
+## test
+
+```python
+#helper.py
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+```
+## Util
+
+```python
+def dedent(s: str) -> str:
+	lines = s.split("\n")[1:-1]
+	indent = len(lines[0]) - len(lines[0].lstrip())
+	return "".join(line[indent:]+"\n" for line in lines)
+```
+
 ## libs
 pycryptodome
-
-
-
 ### mysql
 pymysql: python native. 빠름
 mysql-connector-python: oracle 공식, 느림
