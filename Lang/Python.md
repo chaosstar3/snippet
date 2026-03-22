@@ -44,6 +44,19 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 ```
+
+```python
+import unittest
+
+class Test(unittest.TestCase):
+	def test(self)
+		self.assertEqual(1, 1)
+		
+if __name__ == '__main__':
+	unittest.main()
+
+```
+
 ## Util
 
 ```python
