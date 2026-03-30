@@ -12,8 +12,12 @@ echo -e "$color: \\033[48;5;${color}m bg   \\033[0m"
 
 ## Notify
 ### OSC 777
-
-```
+> wezterm
+```sh
 printf "\033]777;notify;Title;Body\007"
 ```
+### OSC 9
 
+```sh
+printf "\e]9;Message\a"
+```
